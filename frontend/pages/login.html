@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Log in</title><link rel="stylesheet" href="../css/style.css"></head>
+<body><main class="container">
+  <h1>Log in</h1>
+  <input id="email" type="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <button id="btn">Log in</button>
+  <p id="msg" class="error"></p>
+  <p><a href="register.html">Create account</a></p>
+</main>
+<script src="../js/api.js"></script>
+<script>
+document.getElementById('btn').onclick = async () => {
+  try {
+    const { user } = await api('/auth/login', 'POST', { email: email.value, password: password.value });
+    location.href = user.role === 'admin' ? 'admin.html' : 'tracker.html';
+  } catch (e) { msg.textContent = e.message; }
+};
+</script></body></html>

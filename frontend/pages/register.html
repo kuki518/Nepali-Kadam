@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Register</title><link rel="stylesheet" href="../css/style.css"></head>
+<body><main class="container">
+  <h1>Create account</h1>
+  <input id="name" placeholder="Full name">
+  <input id="email" type="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password (8+ chars, letters and numbers)">
+  <button id="btn">Register</button>
+  <p id="msg" class="error"></p>
+  <p>Already registered? <a href="login.html">Log in</a></p>
+</main>
+<script src="../js/api.js"></script>
+<script>
+document.getElementById('btn').onclick = async () => {
+  try {
+    await api('/auth/register', 'POST', { full_name: name.value, email: email.value, password: password.value });
+    location.href = 'login.html';
+  } catch (e) { msg.textContent = e.message; }
+};
+</script></body></html>
