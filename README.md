@@ -1,47 +1,23 @@
-# Nepali Kadam
+Nepali Kadam
 
-A responsive website that tracks walks and runs and shows distance (km), pace, steps, calories burned and time.
-Second Year Project (SYP) – Itahari International College.
+A website that tracks time, distance (km), pace, steps and calories burned for walking and running.
+Second Year Project, Itahari International College.
 
-## Tech stack
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Node.js + Express (JavaScript)
-- **Database:** PostgreSQL
-- **Auth:** bcrypt password hashing, JWT in an httpOnly cookie, role-based access control
+Planned features
+-Timer with start, pause and stop
+-Distance in kilometres
+-Pace
+-Steps (estimated)
+-Calories burned (estimated)
 
-## Project structure
-```
-backend/    Express API (routes, controllers, middleware, tests)
-database/   schema.sql (tables + seed roles/permissions)
-frontend/   Static pages, CSS and JS
-docs/       Proposal, diagrams (use case, ERD, Gantt), WBS
-```
+Built with
+HTML, CSS and JavaScript
 
-## Getting started
-1. Install Node.js 20+ and PostgreSQL.
-2. Create a database: `createdb nepali_kadam`
-3. Load the schema: `psql nepali_kadam -f database/schema.sql`
-4. Backend setup:
-   ```
-   cd backend
-   cp .env.example .env     # then edit the values
-   npm install
-   npm run dev
-   ```
-5. The API runs on http://localhost:3000 and also serves the frontend from `/frontend`.
+Folders
+-index.html: the page
+-css/: styling
+-js/: tracker logic
+-docs/: diagrams and project documents
 
-## API (auth)
-| Method | Endpoint | Description | Access |
-|---|---|---|---|
-| POST | /api/auth/register | Create account | Public |
-| POST | /api/auth/login | Log in (sets cookie) | Public |
-| POST | /api/auth/logout | Log out (clears cookie) | Logged in |
-| GET | /api/auth/me | Current user | Logged in |
-| PUT | /api/auth/password | Change password | Logged in |
-| POST | /api/auth/forgot-password | Request reset token | Public |
-| POST | /api/auth/reset-password | Reset with token | Public |
-| GET | /api/admin/users | List users | Admin |
-| PATCH | /api/admin/users/:id/status | Activate / deactivate | Admin |
-
-## Status
-Initial structure and authentication skeleton. Tracker, metrics and history are in progress (see docs/ for the Gantt chart and WBS).
+Status
+Initial project structure. Features are being built step by step.
