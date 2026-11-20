@@ -9,12 +9,4 @@
   <p id="msg" class="error"></p>
   <p><a href="register.html">Create account</a></p>
 </main>
-<script src="../js/api.js"></script>
-<script>
-document.getElementById('btn').onclick = async () => {
-  try {
-    const { user } = await api('/auth/login', 'POST', { email: email.value, password: password.value });
-    location.href = user.role === 'admin' ? 'admin.html' : 'tracker.html';
-  } catch (e) { msg.textContent = e.message; }
-};
-</script></body></html>
+</body></html>
